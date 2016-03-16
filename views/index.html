@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class='row'>
+  <div class='col-md-8'>
+    <div id='map-canvas' style='height:500px' style='border:solid 1px black'></div>
+  </div>
+  <div class='col-md-4'>
+    {% include 'selectors.html' %}
+    {% include 'trip.html' %}
+
+  </div>
+</div>
+<div>
+  <script>
+  {% autoescape false %}
+  // note to instructors: next iteration, change `all_xyz` to `templateXyz`
+  var Hotels = {{ hotels | json }};
+  Hotels.forEach(function(hotel){
+    hotel.category = 'Hotels';
+  });
+  var Restaurants = {{ restaurants | json }};
+  Restaurants.forEach(function(restaurant){
+    restaurant.category = 'Restaurants';
+  });
+  var Activities = {{ activities | json }};
+  Activities.forEach(function(activity){
+    activity.category = 'Activities';
+  });
+  var attractions = {
+    Hotels: Hotels,
+    Restaurants: Restaurants,
+    Activities: Activities
+  }
+  {% endautoescape %}
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkarjA8hlysMC5aK7ywsrUwYY6UwpnXG0&sensor=true"></script>
+  <script src='/client/javascript/tripplanner.js'></script>
+  <script src='/client/javascript/mapper.js'></script>
+  <script src='/client/javascript/map.js'></script>
+  <script src='/client/javascript/app.js'></script>
+</div>
+{% endblock %}

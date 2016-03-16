@@ -1,0 +1,15 @@
+<div class='form-group'>
+    <label for='{{category}}Chooser'>{{ category }}</label>
+    <div class='row'>
+      <div class='col-xs-9'>
+    <select id='{{category}}Chooser' data-category='{{ category }}' class='form-control'>
+      {% for item in items %}
+        <option value='{{ item.id }}'>{{item.name}}</option>
+      {% endfor %}
+    </select>
+      </div>
+      <div class='col-xs-3'>
+        <button class='btn btn-sm btn-primary' data-selector='#{{category}}Chooser' id='{{category}}Add'>+</button>
+      </div>
+    </div>
+</div>

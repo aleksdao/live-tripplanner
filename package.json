@@ -1,0 +1,30 @@
+{
+  "name": "tripplanner-static-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "seed": "CONN=mongodb://localhost/tp-1601F-2 node seed/tripplanner-seed.js",
+    "test": "CONN=mongodb://localhost/tp-1601F-test ./node_modules/mocha/bin/mocha",
+    "start": "gulp sass:watch & CONN=mongodb://localhost/tp-1601F-2 nodemon --ignore 'client/javascript/*.js' server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "cheerio": "^0.20.0",
+    "mocha": "^2.4.5",
+    "supertest": "^1.2.0",
+    "supertest-as-promised": "^3.0.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.3.4",
+    "chalk": "^1.1.1",
+    "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0",
+    "mongoose": "^4.4.6",
+    "node-sass": "^3.4.2",
+    "swig": "^1.4.2"
+  }
+}
